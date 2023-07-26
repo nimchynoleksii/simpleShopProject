@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      display: flex;
+      align-items: center; /* Align items vertically in header */
+    }
+
+    header img {
+      max-width: 100px;
+      margin-right: 10px; /* Add some spacing between logo and shop name */
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      background-color: #007BFF;
+    }
+
+    nav ul li a:hover {
+      background-color: #0056b3;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .product {
+      width: 100%;
+      display: flex;
+      align-items: center; /* Align items vertically in each product */
+      margin-bottom: 20px; /* Add spacing between products */
+    }
+
+    .product img {
+      width: 200px;
+      max-height: 200px;
+      border-radius: 5px;
+      margin-right: 20px; /* Add spacing between image and description/button */
+    }
+
+    .product-text {
+      flex: 1; /* Take up remaining space */
+    }
+
+    .product h3 {
+      margin: 0; /* Remove default margin for heading */
+    }
+
+    .product p {
+      font-size: 14px;
+      color: #555;
+      margin: 10px 0; /* Add spacing between description and button */
+    }
+
+    .product button {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .product button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- Add your logo image here -->
+    <img src="logo.png" alt="Simple Shop Logo">
+    <h1>Simple Shop</h1>
+    <nav>
+      <ul>
+        <li><a href="#main">Main Page</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#news">News</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="products">
+      <!-- Add more products here -->
+      <div class="product">
+        <img src="default_product3.jpg" alt="Product 3">
+        <div class="product-text">
+          <h3>Product 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <img src="default_product4.jpg" alt="Product 4">
+        <div class="product-text">
+          <h3>Product 4</h3>
+          <p>Integer nec odio. Praesent libero.</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Add more products here -->
+    </section>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button onclick="changePage(-1)">Previous</button>
+      <button onclick="changePage(1)">Next</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Simple Shop. All rights reserved.</p>
+  </footer>
+
+  
+  <script>
+    const productsPerPage = 2; // Change this number to set products per page
+    let currentPage = 1;
+
+    function showProducts(page) {
+      const products = document.querySelectorAll('.product');
+      const startIdx = (page - 1) * productsPerPage;
+      const endIdx = startIdx + productsPerPage;
+
+      products.forEach((product, idx) => {
+        if (idx >= startIdx && idx < endIdx) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    function changePage(step) {
+      currentPage += step;
+      showProducts(currentPage);
+
+      const paginationButtons = document.querySelectorAll('.pagination button');
+      paginationButtons.forEach((btn, idx) => {
+        if (idx === currentPage) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      showProducts(currentPage);
+      const paginationButtons = document.querySelectorAll('.pagination button');
+      paginationButtons.forEach((btn, idx) => {
+        btn.addEventListener('click', () => changePage(idx));
+      });
+    });
+  </script>
+</body>
+
+</html>
