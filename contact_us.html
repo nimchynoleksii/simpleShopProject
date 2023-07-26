@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Simple Shop</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async
+    defer></script>
+
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.jpg" alt="Simple Shop Logo">
+    <h1>Simple Shop</h1>
+    <nav>
+      <ul>
+        <li><a href="main.html">Main Page</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="products.html">Products</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="contact-container">
+
+        <div class="contact-form">
+            <h2>Contact Form</h2>
+            <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+    
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+    
+            <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div class="contact-info">
+          <h2>Contact Us</h2>
+          <p>Email: contact@simpleshop.com</p>
+          <p>Phone: +1 123-456-7890</p>
+          <p>Address: 123 Main Street, New York, NY 10001</p>
+        </div>
+      </div>
+
+    <div class="map-container">
+        <iframe 
+           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.452697041917!2d78.39076592375736!3d17.43803374982052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9144cdba8c47%3A0x937fe346f411a645!2sTutorials%20Point%20(India)%20Ltd.!5e0!3m2!1sen!2sin!4v1673629212535!5m2!1sen!2sin"
+           width="100%"
+           height="100%"
+           style="border:0;"
+           allowfullscreen="" loading="lazy"
+           referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+     </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Simple Shop. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
